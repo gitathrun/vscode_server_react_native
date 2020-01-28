@@ -66,12 +66,13 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 # ------------------  React Native SDK ----------
 RUN npm install -g --unsafe-perm expo-cli
+RUN npm install -g react-native-cli
 
 # must be after env installatin
 # ------------- Code-Server --------------------
 RUN locale-gen en_US.UTF-8
 
-ENV CODE_VERSION="1.1156-vsc1.33.1"
+ENV CODE_VERSION="2.1698-vsc1.41.1"
 RUN curl -sL https://github.com/codercom/code-server/releases/download/${CODE_VERSION}/code-server${CODE_VERSION}-linux-x64.tar.gz | tar --strip-components=1 -zx -C /usr/local/bin code-server${CODE_VERSION}-linux-x64/code-server
 
 # setup extension path
@@ -86,7 +87,11 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     default-jre \
     cmake
 
-# vscode extension installation
+# -------- install vscode extension use shell script ------
+# COPY vscode_extension_install.sh /
+# RUN chmod -R 777 /vscode_extension_install.sh
+# RUN /bin/bash /vscode_extension_install.sh --allow-root
+
 RUN mkdir -p ${VSCODE_EXTENSIONS}/cpptools && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-vscode/vsextensions/cpptools/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/cpptools extension
 RUN mkdir -p ${VSCODE_EXTENSIONS}/vscode-java-pack && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/vscjava/vsextensions/vscode-java-pack/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/vscode-java-pack extension
 RUN mkdir -p ${VSCODE_EXTENSIONS}/cmake-tools && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/vector-of-bool/vsextensions/cmake-tools/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/cmake-tools extension
