@@ -119,8 +119,8 @@ RUN code-server --install-extension dbaeumer.vscode-eslint
 RUN code-server --install-extension esbenp.prettier-vscode
 RUN code-server --install-extension vscode-icons-team.vscode-icons
 RUN code-server --install-extension eg2.vscode-npm-script
-RUN code-server --install-extension christian-kohler.path-intellisense
-RUN code-server --install-extension alefragnani.project-manager
+# RUN code-server --install-extension christian-kohler.path-intellisense
+# RUN code-server --install-extension alefragnani.project-manager
 
 # add in android version 
 # ----------- Android SDK and NDK ------------
