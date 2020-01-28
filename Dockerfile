@@ -98,17 +98,29 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 # RUN chmod -R 777 /vscode_extension_install.sh
 # RUN /bin/bash /vscode_extension_install.sh --allow-root
 
-RUN mkdir -p ${VSCODE_EXTENSIONS}/cpptools && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-vscode/vsextensions/cpptools/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/cpptools extension
-RUN mkdir -p ${VSCODE_EXTENSIONS}/vscode-java-pack && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/vscjava/vsextensions/vscode-java-pack/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/vscode-java-pack extension
-RUN mkdir -p ${VSCODE_EXTENSIONS}/cmake-tools && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-vscode/vsextensions/cmake-tools/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/cmake-tools extension
-RUN mkdir -p ${VSCODE_EXTENSIONS}/vscode-react-native && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/msjsdiag/vsextensions/vscode-react-native/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/vscode-react-native extension
-RUN mkdir -p ${VSCODE_EXTENSIONS}/vscode-language-babel && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/mgmcdermott/vsextensions/vscode-language-babel/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/vscode-language-babel extension
-RUN mkdir -p ${VSCODE_EXTENSIONS}/vscode-eslint && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/dbaeumer/vsextensions/vscode-eslint/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/vscode-eslint extension
-RUN mkdir -p ${VSCODE_EXTENSIONS}/prettier-vscode && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/esbenp/vsextensions/prettier-vscode/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/prettier-vscode extension
-RUN mkdir -p ${VSCODE_EXTENSIONS}/vscode-icons && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/vscode-icons-team/vsextensions/vscode-icons/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/vscode-icons extension
-RUN mkdir -p ${VSCODE_EXTENSIONS}/vscode-npm-script && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/eg2/vsextensions/vscode-npm-script/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/vscode-npm-script extension
-RUN mkdir -p ${VSCODE_EXTENSIONS}/path-intellisense && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/christian-kohler/vsextensions/path-intellisense/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/path-intellisense extension
-RUN mkdir -p ${VSCODE_EXTENSIONS}/project-manager && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/alefragnani/vsextensions/project-manager/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/project-manager extension
+# RUN mkdir -p ${VSCODE_EXTENSIONS}/cpptools && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-vscode/vsextensions/cpptools/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/cpptools extension
+# RUN mkdir -p ${VSCODE_EXTENSIONS}/vscode-java-pack && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/vscjava/vsextensions/vscode-java-pack/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/vscode-java-pack extension
+# RUN mkdir -p ${VSCODE_EXTENSIONS}/cmake-tools && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-vscode/vsextensions/cmake-tools/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/cmake-tools extension
+# RUN mkdir -p ${VSCODE_EXTENSIONS}/vscode-react-native && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/msjsdiag/vsextensions/vscode-react-native/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/vscode-react-native extension
+# RUN mkdir -p ${VSCODE_EXTENSIONS}/vscode-language-babel && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/mgmcdermott/vsextensions/vscode-language-babel/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/vscode-language-babel extension
+# RUN mkdir -p ${VSCODE_EXTENSIONS}/vscode-eslint && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/dbaeumer/vsextensions/vscode-eslint/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/vscode-eslint extension
+# RUN mkdir -p ${VSCODE_EXTENSIONS}/prettier-vscode && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/esbenp/vsextensions/prettier-vscode/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/prettier-vscode extension
+# RUN mkdir -p ${VSCODE_EXTENSIONS}/vscode-icons && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/vscode-icons-team/vsextensions/vscode-icons/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/vscode-icons extension
+# RUN mkdir -p ${VSCODE_EXTENSIONS}/vscode-npm-script && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/eg2/vsextensions/vscode-npm-script/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/vscode-npm-script extension
+# RUN mkdir -p ${VSCODE_EXTENSIONS}/path-intellisense && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/christian-kohler/vsextensions/path-intellisense/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/path-intellisense extension
+# RUN mkdir -p ${VSCODE_EXTENSIONS}/project-manager && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/alefragnani/vsextensions/project-manager/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/project-manager extension
+
+RUN code-server --install-extension ms-vscode.cpptools
+RUN code-server --install-extension vscjava.vscode-java-pack
+RUN code-server --install-extension ms-vscode.cmake-tools
+RUN code-server --install-extension msjsdiag.vscode-react-native
+RUN code-server --install-extension mgmcdermott.vscode-language-babel
+RUN code-server --install-extension dbaeumer.vscode-eslint
+RUN code-server --install-extension esbenp.prettier-vscode
+RUN code-server --install-extension vscode-icons-team.vscode-icons
+RUN code-server --install-extension eg2.vscode-npm-script
+RUN code-server --install-extension christian-kohler.path-intellisense
+RUN code-server --install-extension alefragnani.project-manager
 
 # add in android version 
 # ----------- Android SDK and NDK ------------
@@ -181,4 +193,4 @@ RUN chmod -R 777 /watchlimit.sh
 # /wathlimit.sh
 # this cmd changes watch file limit in docker container without effect host machine
 
-CMD ["code-server", "-N", "-p", "8888", "-e", "/root/.vscode/extensions"]
+CMD ["code-server", "--auth", "none", "--port", "8888", "--extensions-dir", "/root/.vscode/extensions"]
