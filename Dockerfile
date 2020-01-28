@@ -72,8 +72,14 @@ RUN npm install -g react-native-cli
 # ------------- Code-Server --------------------
 RUN locale-gen en_US.UTF-8
 
+ENV CODE_TAG="2.1698"
 ENV CODE_VERSION="2.1698-vsc1.41.1"
-RUN curl -sL https://github.com/codercom/code-server/releases/download/${CODE_VERSION}/code-server${CODE_VERSION}-linux-x64.tar.gz | tar --strip-components=1 -zx -C /usr/local/bin code-server${CODE_VERSION}-linux-x64/code-server
+# RUN curl -sL https://github.com/codercom/code-server/releases/download/${CODE_VERSION}/code-server${CODE_VERSION}-linux-x64.tar.gz | tar --strip-components=1 -zx -C /usr/local/bin code-server${CODE_VERSION}-linux-x64/code-server
+#              https://github.com/cdr/code-server/releases/download/2.1698/code-server2.1698-vsc1.41.1-linux-x86_64.tar.gz
+#              https://github.com/cdr/code-server/releases/download/${CODE_TAG}/code-server${CODE_VERSION}-linux-x86_64.tar.gz
+#              https://github.com/cdr/code-server/releases/download/1.1156-vsc1.33.1/code-server1.1156-vsc1.33.1-linux-x64.tar.gz
+
+RUN curl -sL https://github.com/cdr/code-server/releases/download/${CODE_TAG}/code-server${CODE_VERSION}-linux-x86_64.tar.gz | tar --strip-components=1 -zx -C /usr/local/bin code-server${CODE_VERSION}-linux-x86_64/code-server
 
 # setup extension path
 # for Linux:
